@@ -1,0 +1,32 @@
+.home-img {
+  max-width: 100%;
+}
+.image {
+  display: none;
+}
+ 
+@keyframes blender {
+  0% {
+    opacity: 0;
+    transform: translate(0px);
+  }
+  30% {
+    opacity: 11z;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0px);
+  }
+}
+.imageActive {
+  float: left;
+  width: 150vw;
+  height: 100vh;
+  object-fit: cover;
+  box-sizing: border-box;
+  opacity: 0;
+  animation: blender 5s linear 50ms;
+}

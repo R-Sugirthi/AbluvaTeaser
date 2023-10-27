@@ -1,0 +1,10 @@
+.logo_container {
+  position: "absolute";
+  display: flex; 
+  align-items: center; 
+  z-index: 100;
+}
+
+
+
+
