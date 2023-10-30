@@ -34,7 +34,6 @@ hr{
 
 @media screen and (max-width: 768px) {
   .custom-div {
-    margin-top: 100px;
     padding: 20px;
   }
 }

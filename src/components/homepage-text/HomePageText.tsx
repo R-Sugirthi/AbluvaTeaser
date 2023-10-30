@@ -4,7 +4,7 @@ import './HomePageText.css';
 
 export default function HomePageText() {
   return (
-    <Div className="font1 md:px-20 mt-32 custom-div"> 
+    <Div className="font1 md:px-20 md:mt-40 custom-div"> 
       <p className = "content1">Tropo, Strato, Meso, Thermo and Exosphere protect Earth</p>
       <br />
       <Div className="h-32 font-bolder">
