@@ -10,27 +10,18 @@ export const WINDOW_DEVICE_PIXEL_RATIO =
 export const sphres = [
   {
     anisotropy: 8,
-    args: [80, 40, 40],
+    args: [95, 40, 40],
     opacity: 0.2,
-    rotaionX: 0.012,
-    rotaionY: 0.012,
-    rotaionZ: 0.012,
+    rotaionX: 0.010,
+    rotaionY: 0.011,
+    rotaionZ: 0.010,
   },
   {
     anisotropy: 16,
-    args: [55, 40, 40],
+    args: [65, 40, 40],
     opacity: 0.3,
     rotaionX: 0.012,
-    rotaionY: 0.015,
-    rotaionZ: 0.020,
+    rotaionY: 0.011,
+    rotaionZ: 0.012,
   },
-
-  // {
-  //   anisotropy: null,
-  //   args: [100, 40, 40],
-  //   opacity: 0.1,
-  //   rotaionX: 0.012,
-  //   rotaionY: 0.012,
-  //   rotaionZ: 0.012,
-  // },
 ];

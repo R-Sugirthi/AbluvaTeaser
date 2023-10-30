@@ -8,7 +8,7 @@ export default function HomePageText() {
       <p className = "content1">Tropo, Strato, Meso, Thermo and Exosphere protect Earth</p>
       <br />
       <Div className="h-32 font-bolder">
-        <TypewriterText text="What protects your data ?" delay={200} infinite />
+        <TypewriterText text="What protects your Data ?" delay={200} infinite />
       </Div>
       <br />
       <hr />
