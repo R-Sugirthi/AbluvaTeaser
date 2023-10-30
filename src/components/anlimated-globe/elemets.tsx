@@ -1,5 +1,3 @@
-"use client";
-
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import React, { useRef } from "react";
@@ -8,22 +6,19 @@ import Nucleus from "../three/Mesh/nucleus";
 import Orbit from "../three/Orbit/orbit";
 import StarGeometry from "../three/Geometry/star";
 import SphereBackground from "../three/Sphere/spherebackground";
-import ClickablePoint from "../three/Points/clickablePoints";
 import Diractional from "../three/Light/directional";
-import { constantPounts, sphres } from "../constants/contsants";
+import { sphres } from "../constants/contsants";
 import Ambient from "../three/Light/ambient";
-export default function Elemets() {
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.01,
-    1000
-  );
+
+export default function Elements() {
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.01, 1000);
   camera.position.set(0, 0, 230);
   camera.fov = 60;
-  const ref = useRef();
+  const ref = useRef<THREE.Mesh>(); // Specify the type of ref
+
   let previousMouseX = 0;
   let previousMouseY = 0;
+
   useFrame((state) => {
     const mouseX = state.mouse.x;
     const mouseY = state.mouse.y;
@@ -42,6 +37,7 @@ export default function Elemets() {
     previousMouseX = mouseX;
     previousMouseY = mouseY;
   });
+
   return (
     <mesh ref={ref}>
       <Orbit />

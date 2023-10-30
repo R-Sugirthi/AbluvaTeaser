@@ -1,7 +1,6 @@
 import React, { useRef, useMemo } from "react";
 import { useLoader, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
 
 const particlesCount = 150;
 
@@ -17,9 +16,11 @@ function randomPointSphere(radius: number) {
 export default function Star() {
   const geometry = new THREE.BufferGeometry();
   let positions = [];
-  const ref = useRef();
+  let normals = [];
+  const ref = useRef<THREE.Points>();
+
   const texture = useLoader(
-    TextureLoader,
+    THREE.TextureLoader,
     "https://i.ibb.co/ZKsdYSz/p1-g3zb2a.png"
   );
 
@@ -32,17 +33,19 @@ export default function Star() {
     new THREE.Float32BufferAttribute(positions, 3)
   );
 
+  geometry.computeVertexNormals(); // Compute normals
+
   useFrame((state) => {
-    let geometry = ref.current.geometry;
-    let positionAttribute = geometry.attributes.position;
-    const vertex = new THREE.Vector3();
-    const speed = -Math.PI / 2;
-    for (let i = 0; i < positionAttribute.count; i++) {
-      const v = vertex.fromBufferAttribute(positionAttribute, i);
-      positionAttribute.setXYZ(i, v.x, v.y, v.z);
+    const geometryRef = ref.current;
+    if (geometryRef) {
+      const positionAttribute = geometryRef.geometry.getAttribute("position");
+      const vertex = new THREE.Vector3();
+      for (let i = 0; i < positionAttribute.count; i++) {
+        const v = vertex.fromBufferAttribute(positionAttribute, i);
+        positionAttribute.setXYZ(i, v.x, v.y, v.z);
+      }
+      positionAttribute.needsUpdate = true;
     }
-    positionAttribute.needsUpdate = true;
-    positionAttribute.normalsNeedUpdate = true;
   });
 
   return (
